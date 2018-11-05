@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Paragraph</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+</head>
+<body>
+    <button type="button" onclick="addPar()"> Click me to see a paragraph added</button>
+    <div id="toadddiv">
+
+    </div>
+<script>
+    function addPar() {
+        var p = document.createElement("p");
+        var node = document.createTextNode("This is the new text to be added");
+        p.appendChild(node);
+        var cont = document.getElementById("toadddiv");
+        cont.appendChild(p);
+    }
+</script>
+    <script src="js/bootstrap.js"  ></script>
+
+</body>
+</html>

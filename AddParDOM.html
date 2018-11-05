@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add paragraph using DOM event listener</title>
+</head>
+<body>
+    <button id="addWhenClicked">Click to add a paragraph </button>
+    <div id="addedDiv"></div>
+
+    <script>
+        document.getElementById("addWhenClicked").addEventListener("click", addPar);
+        function  addPar() {
+            var p = document.createElement("p");
+            var node = document.createTextNode("This is the paragraph added");
+            p.appendChild(node);
+            var cont = document.getElementById("addedDiv");
+            cont.appendChild(p);
+        }
+    </script>
+</body>
+</html>

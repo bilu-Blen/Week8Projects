@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counting clicks</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+</head>
+<body>
+    <script  type="text/javascript">
+        var clicks = 0;
+        function numberOfClicks() {
+            clicks +=1;
+            document.getElementById("clicksNum").innerHTML = clicks;
+        }
+
+    </script>
+    <h5>The number of clicks on the the button are: <span id="clicksNum">0</span></h5>
+    <button onclick="numberOfClicks()" type="button"> Click me to see the number of clicks!</button>
+
+    <script src="js/bootstrap.js"  ></script>
+
+</body>
+</html>
