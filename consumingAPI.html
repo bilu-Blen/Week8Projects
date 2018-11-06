@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>consuming API</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+    getNews();
+    function getNews() {
+        var theResponse;
+        var HttpObject = new XMLHttpRequest();
+        var url = "https://newsapi.org/v2/top-headlines?country=us&apikey=8b7272082cf94cdd84d7d0a55ed662b1&catagory=sports&finance";
+        HttpObject.responseType='json'
+        HttpObject.open ('GET', url);
+        HttpObject.send();
+
+        HttpObject.onreadystatechange = function () {
+            if(this.readyState==1){
+                console.log("Connection established");
+            }
+            if(this.readyState==3){
+                console.log("Loading Data");
+            }
+            if(this.readyState==4){
+                console.log("Done");
+
+                if(this.status==200)
+                {
+                    console.log("Result successful. Check your page.");
+                    theResponse = this.response;
+                    showNews(theResponse);
+                    console.log(theResponse.articles);
+                    //console.log(this.response.articles);
+                }
+                else
+                {
+                    console.log("Something went wrong. Check below for details.");
+                    console.log(this.statusText);
+                }
+            }
+            return HttpObject.response;
+        }
+
+        function showNews(result) {
+            var displayText;
+            for(i=0; i<result.articles.length; i++)
+            {
+                document.write(result.articles[i].title+"<br/>");
+            }
+        }
+    }
+</script>
+</body>
+</html>
